@@ -59,4 +59,13 @@ public class Controller implements ActionListener {
         gui.getButtonNewGame().setEnabled(true);
     }
 
+    private void handleNEW_GAMEEvent() {
+        System.out.println("New game");
+        currentItemNumber = dictionary.getRandomItem(copyOfList);
+        randomItem = copyOfList.get(currentItemNumber);
+        gui.getLabelEngWord().setText(randomItem.getAngWord());
+        gui.getPicture().setIcon(new ImageIcon(
+                "assets/ninja_cat3.png"));
+    }
+
 }
