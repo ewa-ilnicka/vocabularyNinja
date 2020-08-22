@@ -68,4 +68,43 @@ public class Controller implements ActionListener {
                 "assets/ninja_cat3.png"));
     }
 
+    private void handleCheckEvent() {
+        System.out.println("Check");
+        String userWord = gui.getTextFieldAnswer().getText();
+        Set<String> plTranslations = randomItem.getPlWords();
+        boolean dobrze = false;
+        for (String currentString : plTranslations) {
+            if (userWord.toLowerCase().trim().equals(currentString.toLowerCase())) {
+                dobrze = true;
+                System.out.println("OK");
+                break;
+            } else {
+                System.out.println("NOT OK");
+            }
+        }
+
+        if (dobrze) {
+            gui.setScore(gui.getScore() + 1);
+            String scoreString = String.valueOf(gui.getScore());
+            gui.getLabelActualScore().setText(scoreString);
+            System.out.println(gui.getScore());
+            gui.getPicture().setIcon(new ImageIcon(
+                    "assets/ninja_cat4.png"));
+            copyOfList.remove(currentItemNumber);
+            System.out.println("usunąłem element: " + currentItemNumber + " Słówko: " + randomItem.getAngWord());
+            gui.getWindow().setVisible(true);
+        } else {
+            gui.setScore(gui.getScore() - 1);
+            String scoreString = String.valueOf(gui.getScore());
+            gui.getLabelActualScore().setText(scoreString);
+            System.out.println(gui.getScore());
+            gui.getPicture().setIcon(new ImageIcon(
+                    "assets/ninja_cat5.png"));
+            gui.getWindow().setVisible(true);
+        }
+        currentItemNumber = dictionary.getRandomItem(copyOfList);
+        randomItem = copyOfList.get(currentItemNumber);
+        gui.getLabelEngWord().setText(randomItem.getAngWord());
+    }
+
 }
