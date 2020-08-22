@@ -87,4 +87,9 @@ public class GUI {
         open.addActionListener(actionListener);
     }
 
+    public File showFileChooser() {
+        fileChooser.showOpenDialog(window);
+        return fileChooser.getSelectedFile();
+    }
+
 }
