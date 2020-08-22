@@ -65,7 +65,7 @@ public class Controller implements ActionListener {
         randomItem = copyOfList.get(currentItemNumber);
         gui.getLabelEngWord().setText(randomItem.getAngWord());
         gui.getPicture().setIcon(new ImageIcon(
-                "assets/ninja_cat3.png"));
+                "src\\assets\\ninja_cat3.png"));
     }
 
     private void handleCheckEvent() {
@@ -89,7 +89,7 @@ public class Controller implements ActionListener {
             gui.getLabelActualScore().setText(scoreString);
             System.out.println(gui.getScore());
             gui.getPicture().setIcon(new ImageIcon(
-                    "assets/ninja_cat4.png"));
+                    "src\\assets\\ninja_cat4.png"));
             copyOfList.remove(currentItemNumber);
             System.out.println("usunąłem element: " + currentItemNumber + " Słówko: " + randomItem.getAngWord());
             gui.getWindow().setVisible(true);
@@ -99,7 +99,7 @@ public class Controller implements ActionListener {
             gui.getLabelActualScore().setText(scoreString);
             System.out.println(gui.getScore());
             gui.getPicture().setIcon(new ImageIcon(
-                    "assets/ninja_cat5.png"));
+                    "src\\assets\\ninja_cat5.png"));
             gui.getWindow().setVisible(true);
         }
         currentItemNumber = dictionary.getRandomItem(copyOfList);

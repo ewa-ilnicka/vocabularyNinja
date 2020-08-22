@@ -86,7 +86,7 @@ public class GUI {
         fileChooser = new JFileChooser(
                 FileSystemView
                         .getFileSystemView()
-                        .getParentDirectory(new File("assets/words.csv")));
+                        .getParentDirectory(new File("src\\assets\\words.csv")));
         fileChooser.setFileFilter(new FileNameExtensionFilter("*.csv", "csv"));
         open.setActionCommand(OPEN);
 
@@ -103,7 +103,7 @@ public class GUI {
         labelEngWord.setForeground(white);
         window.getContentPane().add(labelEngWord);
 
-        labelAuthor = new JLabel("@Author: EwaI");
+        labelAuthor = new JLabel("@Author: EwaIlnicka");
         labelAuthor.setBounds(10, 590, 100, 50);
         labelAuthor.setFont(new Font("Serif", Font.PLAIN, 10));
         labelAuthor.setForeground(white);
@@ -123,7 +123,7 @@ public class GUI {
         window.getContentPane().add(textFieldAnswer);
 
         picture = new JLabel(new ImageIcon(
-                "C:\\Users\\E\\IdeaProjects\\workshop_code\\src\\com\\ewai\\vocabulary_game\\ninja_cat3.png"));
+                "src\\assets\\ninja_cat3.png"));
         picture.setBounds(445, 390, 250, 250);
         window.getContentPane().add(picture);
 
