@@ -1,8 +1,13 @@
 package view;
 
 import javax.swing.*;
-
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+
+import java.io.File;
+
+import static model.Config.*;
 
 
 public class GUI {
@@ -12,12 +17,12 @@ public class GUI {
     private JFrame window;
     private JMenu file;
     private JMenuItem open;
+    private JFileChooser fileChooser;
 
 
     public JFrame getWindow() {
         return window;
     }
-
 
     public void createAndShowWindow() {
         window = new JFrame("Vocabulary Ninja");
@@ -36,11 +41,16 @@ public class GUI {
         file.setForeground(Color.black);
         menuBar.add(file);
 
-
-
         open = new JMenuItem("Open");
         file.add(open);
         open.setBorder(null);
+
+        fileChooser = new JFileChooser(
+                FileSystemView
+                        .getFileSystemView()
+                        .getParentDirectory(new File("assets/words.csv")));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("*.csv", "csv"));
+        open.setActionCommand(OPEN);
 
 
         window.setLayout(null);
