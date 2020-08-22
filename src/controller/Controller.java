@@ -1,7 +1,8 @@
 package controller;
 
 import view.GUI;
-
+import model.DAO.CsvDAO;
+import model.DAO.DAO;
 import model.Dictionary;
 import model.Item;
 
@@ -20,6 +21,7 @@ import static model.Config.OPEN;
 public class Controller implements ActionListener {
 
     private GUI gui;
+    private DAO dao;
     private Dictionary dictionary;
     private int currentItemNumber;
     private Item randomItem;
@@ -27,6 +29,7 @@ public class Controller implements ActionListener {
 
     {
         gui = new GUI();
+        dao = new CsvDAO();
         dictionary = new Dictionary();
     }
 
@@ -49,5 +52,11 @@ public class Controller implements ActionListener {
         }
     }
 
+    private void handleOpenEvent() {
+        File file = gui.showFileChooser();
+        this.dictionary = dao.loadDictionary(file);
+        copyOfList = dictionary.readCSV();
+        gui.getButtonNewGame().setEnabled(true);
+    }
 
 }
