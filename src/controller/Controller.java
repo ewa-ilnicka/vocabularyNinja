@@ -18,4 +18,18 @@ public class Controller {
         gui.createAndShowWindow();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
+            case CHECK:
+                handleCheckEvent();
+                break;
+            case NEW_GAME:
+                handleNEW_GAMEEvent();
+                break;
+            case OPEN:
+                handleOpenEvent();
+        }
+    }
+
 }
